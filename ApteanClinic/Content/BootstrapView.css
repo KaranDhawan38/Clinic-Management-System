@@ -1,0 +1,225 @@
+﻿
+input[type=search] {
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.5s ease-in-out;
+    transition: width 0.1s ease-in-out;
+}
+
+
+    input[type=search]:focus {
+        width: 50%!important;
+    }
+
+.searchbar {
+    text-align: right;
+}
+
+input[type=number] {
+    width: 50%;
+    border-radius: 10px;
+    height: 50px;
+}
+
+input[type=checkbox] {
+    height: 20px;
+    width: 20px;
+}
+
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+input:checked + .slider {
+    background-color: #4DD865;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #4DD865;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+
+.invoice label {
+    font-size: x-large;
+}
+
+.invoice h1 {
+    font-size: large;
+}
+
+.invoice h2 {
+    font-size: large;
+}
+
+
+
+
+
+.searchbar {
+    text-align: right;
+}
+
+input[type=number]{
+    width: 100%;
+    border-radius: 10px;
+    height: 50px;
+}
+
+input[type=checkbox] {
+    height: 20px;
+    width: 20px;
+}
+/* When the input field gets focus, change its width to 100% */
+input[type=search]:focus {
+    width: 50%;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+input:checked + .slider {
+    background-color: #4DD865;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #4DD865;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+
+.invoice label {
+    font-size: x-large;
+    color: #009ECE;
+}
+
+
+.invoice
+{
+    font-size:medium;
+}
+
+table #th {
+    color: #009ECE;
+}
+
+
+#InvoiceHeader {
+    color: grey;
+}
+
+.btn-round {
+    border-radius: 40px;
+    width: 150px;
+}
+
+/*select
+{
+    font-size:large;
+   box-shadow:inset;
+}
+body
+{
+    font-size:large;
+}*/

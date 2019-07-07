@@ -1,0 +1,38 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    ViewBag.Title = "Error";
+    if (Session["UserId"] == null)
+    {
+        Layout = "~/Views/Shared/ErrorCodeLayout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/HomePageLayout.cshtml";
+    }
+}
+
+<div class="row text-center" style="margin-bottom:800px">
+    @if (TempData["ErrorCode"].ToString() == "404")
+    {
+        <h1 class="text-danger">Error Code : 404 (NOT FOUND)</h1>
+        <h2 class="text-danger">Page you are looking for is not found <label style="font-size:60px;padding-left:20px">:(</label></h2>
+    }
+    else if (TempData["ErrorCode"].ToString() == "401")
+    {
+        <h1 class="text-danger">Error Code : 401 (UNAUTHORIZED)</h1>
+        <h2 class="text-danger">An unauthorized access is detected</h2>
+    }
+    else if (TempData["ErrorCode"].ToString() == "400")
+    {
+        <h1 class="text-danger">Error Code : 400  (BAD REQUEST)</h1>
+        <h2 class="text-danger">This might be caused due to web browser you’re using accessed the page incorrectly, or the request was corrupt somehow.  <label style="font-size:60px;padding-left:20px">:(</label></h2>
+    }
+    else if (TempData["ErrorCode"].ToString() == "500")
+    {
+        <h1 class="text-danger">Error Code : 500 (INTERNAL SERVER ERROR)</h1>
+        <h2 class="text-danger">Something went wrong <label style="font-size:60px;padding-left:20px">:(</label></h2>
+    }
+    <h1>Go to => <a href="/">Aptean Clinic</a></h1>
+</div>
+

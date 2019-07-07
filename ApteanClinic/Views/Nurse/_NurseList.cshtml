@@ -1,0 +1,57 @@
+﻿@model IEnumerable<ApteanClinic.Models.Nurse>
+
+<html>
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" cellspacing="0">
+</head>
+<body>
+    <table id="myTable" class="table table-striped table-bordered table-sm">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.NurseUser.Name)
+                    <i class="fa fa-fw fa-sort"></i>
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NurseUser.Gender)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NurseUser.Contact)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NurseUser.Email)
+                    <i class="fa fa-fw fa-sort"></i>
+                </th>
+                <th>
+                    <button class="btn btn-primary" type="button" onclick="location.href='@Url.Action("Create", "Nurse")'"><span style="padding:5px;" class="glyphicon glyphicon-plus-sign"></span>Add Nurse</button>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NurseUser.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NurseUser.Gender)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NurseUser.Contact)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NurseUser.Email)
+                    </td>
+                    <td>
+                        <button class="btn btn-primary" type="button" onclick="location.href='@Url.Action("Edit", "Nurse", new { id = item.Id })'"><span style="padding:5px;" class="glyphicon glyphicon-edit"></span>Edit</button>
+                        <button class="btn btn-default" type="button" onclick="location.href='@Url.Action("Details", "Nurse", new { id = item.Id })'"><span style="padding:5px;" class="glyphicon glyphicon-folder-close"></span>Details</button>
+                        <button class="btn btn-danger" type="button" onclick="location.href='@Url.Action("Delete", "Nurse", new { id = item.Id })'"><span style="padding:5px;" class="glyphicon glyphicon-trash"></span>Delete</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

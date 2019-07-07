@@ -1,0 +1,89 @@
+﻿@model IEnumerable<ApteanClinic.Models.AppointmentListViewModel>
+
+@{
+    ViewBag.Title = "AppointmentList";
+}
+
+<style>
+    .btn-round {
+        border-radius: 40px;
+        width: 150px;
+    }
+</style>
+
+<table class="table text-center">
+    <tr>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.PatientName)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.Time)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Id)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.PatientName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Date)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Time)
+    </td>
+    @if (item.Status == ApteanClinic.Models.Enums.AppointmentStatus.Pending)
+    {
+        <td class="btn btn-warning btn-round">PENDING</td>
+        if (((int)Session["Role"] == 1))
+        {
+            <td><button class="btn btn-primary" onclick="location.href='@Url.Action("Edit", "Appointment", new { id = item.Id })'"><span class="glyphicon glyphicon-pencil" style="padding:3px;"></span>Edit</button></td>
+        }
+    }
+    else if (item.Status == ApteanClinic.Models.Enums.AppointmentStatus.Approved)
+    {
+        <td class="btn btn-success btn-round">APPROVED</td>
+        if (((int)Session["Role"] == 1))
+        {
+            <td><button class="btn btn-default" onclick="location.href='@Url.Action("Create", "MedicalHistories", new { id = item.PatientId, aid = item.Id })'">Add Diagnosis</button></td>
+        }
+    }
+    else if (item.Status == ApteanClinic.Models.Enums.AppointmentStatus.Cancelled)
+    {
+        <td class="btn btn-danger btn-round">CANCELLED</td>
+    }
+    else if (item.Status == ApteanClinic.Models.Enums.AppointmentStatus.Closed)
+    {
+        <div class="btn btn-default btn-round">CLOSED</div>
+        if ((int)Session["Role"] == 2 || (int)Session["Role"] == 1)
+        {
+
+            <td>
+                <div class="btn btn-default btn-round">
+                    @Html.ActionLink("Add Medicines", "AddMedicines", "Invoice", new { id = item.Id }, null)
+                </div>
+            </td>
+            <br />
+
+
+
+        }
+    }
+</tr>
+        }
+
+</table>

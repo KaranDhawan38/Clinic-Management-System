@@ -1,0 +1,76 @@
+﻿
+@model IEnumerable<ApteanClinic.Models.Patient>
+<html>
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" cellspacing="0">
+</head>
+<body>
+
+    <table id="myTable" class="table table-striped table-bordered table-sm">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.PatientUser.Id)
+                    <i class="fa fa-fw fa-sort"></i>
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PatientUser.Name)
+                    <i class="fa fa-fw fa-sort"></i>
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PatientUser.Contact)
+                    <i class="fa fa-fw fa-sort"></i>
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Address)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PatientUser.Email)
+                    <i class="fa fa-fw fa-sort"></i>
+                </th>
+                <th>
+                    @if (Session["Role"].ToString() == "Admin" || Session["Role"].ToString() == "Nurse")
+                    {
+                        <button class="btn btn-primary" type="button" onclick="location.href='@Url.Action("Create", "Patients")'"><span style="padding:5px;" class="glyphicon glyphicon-plus-sign"></span>Add Patient</button>
+                    }
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PatientUser.Id)
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PatientUser.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PatientUser.Contact)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PatientUser.Email)
+                    </td>
+                    <td>
+                        @if (Session["Role"].ToString() == "Nurse" || Session["Role"].ToString() == "Patient")
+                        {
+                            <button class="btn btn-info" type="button" onclick="location.href='@Url.Action("Index", "Appointment", new { id = item.Id })'"><span style="padding:5px;" class="glyphicon glyphicon-pencil"></span>Fix Appointment</button>
+                        }
+                        <button class="btn btn-default" onclick="location.href='@Url.Action("Details", "Patients", new { id = item.Id })'" type="button"><span style="padding:5px;" class="glyphicon glyphicon-folder-close"></span>Details</button>
+                        @if (Session["Role"].ToString() == "Admin")
+                        {
+                            <button class="btn btn-danger" type="button" onclick="location.href='@Url.Action("Delete", "Patients", new { id = item.Id })'"><span style="padding:5px;" class="glyphicon glyphicon-trash"></span>Delete</button>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,66 @@
+﻿@model ApteanClinic.Models.DoctorDetailsViewModel
+@{
+    ViewBag.Title = "Details";
+}
+
+<link rel="stylesheet" href="~/Content/Details.css" />
+<style>
+    /*.table-head {
+        font-size: 25px;
+        font: bold;
+    }
+
+    .table-body {
+        font-size: 20px;
+    }*/
+
+</style>
+
+<div class="page-title">
+    <div class="title_left">
+        <h3>Details</h3>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="detailsShow">
+                <div class="x_content">
+                    <div class="col-md-3 col-sm-3 col-xs-12 profile_left ">
+                        <div class="profile_img">
+                            <div id="crop-avatar">
+                                <img class="img-responsive avatar-view" src="~/Images/user.png">
+                            </div>
+                        </div>
+                        <h3> @Html.DisplayFor(model => model.Doctor.DoctorUser.Name)</h3>
+                        <div id="docid" hidden>@Model.Doctor.Id</div>
+                        <ul class="list-unstyled user_data" style="font-size:20px">
+                            <li> <i class="glyphicon glyphicon-briefcase"> @Html.DisplayFor(model => model.Doctor.Speciality)</i></li>
+                            <li> <i class="glyphicon glyphicon-envelope"> @Html.DisplayFor(model => model.Doctor.DoctorUser.Email)</i></li>
+                            <li> <i class="glyphicon glyphicon-earphone"> @Html.DisplayFor(model => model.Doctor.DoctorUser.Contact)</i></li>
+                            <li style="margin-top:10px"> <span style="padding:7px" class="label label-success"> Available </span> </li>
+                        </ul>
+                        @if (Session["Role"].ToString() == "Doctor" || Session["Role"].ToString() == "Admin")
+                        {
+                            <button class="btn btn-default" style="margin-top:10px" type="button" onclick="location.href='@Url.Action("Edit", "Doctors", new { id = Model.Doctor.Id })'"><span style="padding:5px;" class="glyphicon glyphicon-edit"></span>Edit</button>
+                        }
+                        <br />
+                    </div>
+                    @if (Session["Role"].ToString() == "Doctor")
+                    {
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <button class="btn btn-lg " id="upcomingappointments">Upcoming Appointments</button>
+                            <button class="btn btn-lg " id="allappointments">All</button><br /><br />
+                            <table id="appointmenttable" class="table"></table>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript" src="~/Scripts/DoctorDetails.js"></script>
+}

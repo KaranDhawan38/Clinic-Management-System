@@ -1,0 +1,79 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.452
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApteanClinic", "ApteanClinic\ApteanClinic.csproj", "{F1E7ECFA-C471-4699-833D-900519885B40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApteanClinic.Tests", "ApteanClinic.Tests\ApteanClinic.Tests.csproj", "{CC2E9A4F-A4C2-443E-A112-BE0C1AB601E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{41B7E9E4-84AE-4D6A-9CC8-340514A56D40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayer", "BusinessLayer\BusinessLayer.csproj", "{130B159E-A6AA-43CA-B4C0-C185478DC457}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Database", "Database\Database.csproj", "{ABDC9BC9-193B-4912-8E5F-F726B1A89445}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logger", "Logger\Logger.csproj", "{E886A61A-798D-412E-A0FC-061F8D311AC5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F1E7ECFA-C471-4699-833D-900519885B40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1E7ECFA-C471-4699-833D-900519885B40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1E7ECFA-C471-4699-833D-900519885B40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1E7ECFA-C471-4699-833D-900519885B40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC2E9A4F-A4C2-443E-A112-BE0C1AB601E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC2E9A4F-A4C2-443E-A112-BE0C1AB601E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC2E9A4F-A4C2-443E-A112-BE0C1AB601E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC2E9A4F-A4C2-443E-A112-BE0C1AB601E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41B7E9E4-84AE-4D6A-9CC8-340514A56D40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41B7E9E4-84AE-4D6A-9CC8-340514A56D40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41B7E9E4-84AE-4D6A-9CC8-340514A56D40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41B7E9E4-84AE-4D6A-9CC8-340514A56D40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{130B159E-A6AA-43CA-B4C0-C185478DC457}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{130B159E-A6AA-43CA-B4C0-C185478DC457}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{130B159E-A6AA-43CA-B4C0-C185478DC457}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{130B159E-A6AA-43CA-B4C0-C185478DC457}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABDC9BC9-193B-4912-8E5F-F726B1A89445}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABDC9BC9-193B-4912-8E5F-F726B1A89445}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABDC9BC9-193B-4912-8E5F-F726B1A89445}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABDC9BC9-193B-4912-8E5F-F726B1A89445}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E886A61A-798D-412E-A0FC-061F8D311AC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E886A61A-798D-412E-A0FC-061F8D311AC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E886A61A-798D-412E-A0FC-061F8D311AC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E886A61A-798D-412E-A0FC-061F8D311AC5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {40439BF0-58E9-420F-BE01-7CA4E5DB44E1}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 7
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://tfs2018poc1:8080/tfs/engineering
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ApteanClinic\\ApteanClinic.csproj
+		SccProjectName1 = ApteanClinic
+		SccLocalPath1 = ApteanClinic
+		SccProjectUniqueName2 = ApteanClinic.Tests\\ApteanClinic.Tests.csproj
+		SccProjectName2 = ApteanClinic.Tests
+		SccLocalPath2 = ApteanClinic.Tests
+		SccProjectUniqueName3 = Models\\Models.csproj
+		SccProjectName3 = Models
+		SccLocalPath3 = Models
+		SccProjectUniqueName4 = Database\\Database.csproj
+		SccProjectName4 = Database
+		SccLocalPath4 = Database
+		SccProjectUniqueName5 = BusinessLayer\\BusinessLayer.csproj
+		SccProjectName5 = BusinessLayer
+		SccLocalPath5 = BusinessLayer
+		SccProjectUniqueName6 = Logger\\Logger.csproj
+		SccProjectName6 = Logger
+		SccLocalPath6 = Logger
+	EndGlobalSection
+EndGlobal

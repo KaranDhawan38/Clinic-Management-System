@@ -1,0 +1,84 @@
+﻿@model IEnumerable<ApteanClinic.Models.Doctor>
+
+<html>
+<head>
+
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+</head>
+<body>
+
+    <table id="myTable" class="table table-striped table-bordered table-sm" cellspacing="0">
+        <thead>
+
+            <tr>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.DoctorUser.Name)
+                    <i class="fa fa-fw fa-sort"></i>
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Speciality)
+                    <i class="fa fa-fw fa-sort"></i>
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fees)
+                    <i class="fa fa-fw fa-sort"></i>
+                </th>
+                <th>
+                    Status
+                </th>
+                <th>
+                    Account Status
+                </th>
+                <th>
+                    @if (Session["Role"].ToString() == "Admin")
+                    {
+                        <button class="btn btn-primary" type="button" onclick="location.href='@Url.Action("Create", "Doctors")'"><span style="padding:5px; " class="glyphicon glyphicon-plus-sign"></span>Add Doctor</button>
+                    }
+
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DoctorUser.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Speciality)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fees)
+                    </td>
+                    <td>
+                        <div class="btn btn-success btn-round">Available</div>
+                    </td>
+                    <td>
+                        <div class="btn btn-success btn-round">Active</div>
+                    </td>
+                    <td>
+                        @if (Session["Role"].ToString() == "Admin")
+                        {
+                            <button class="btn btn-primary" type="button" onclick="location.href='@Url.Action("Edit", "Doctors", new { id = item.Id })'"><span style="padding:5px;" class="glyphicon glyphicon-edit"></span>Edit</button>
+                        }
+                        <button class="btn btn-default" type="button" onclick="location.href='@Url.Action("Details", "Doctors", new { id = item.Id })'"><span style="padding:5px;" class="glyphicon glyphicon-folder-close"></span>Details</button>
+                        @if (Session["Role"].ToString() == "Admin")
+                        {
+                            <button class="btn btn-danger" type="button" onclick="location.href='@Url.Action("Delete", "Doctors", new { id = item.Id })'"><span style="padding:5px;" class="glyphicon glyphicon-trash"></span>Delete</button>
+                        }
+                    </td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+
+</body>
+</html>
+
+

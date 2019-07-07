@@ -1,0 +1,90 @@
+﻿@model IEnumerable<ApteanClinic.Models.MedicalHistoryViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+<!DOCTYPE html>
+
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" cellspacing="0">
+</head>
+<body>
+    <h2>Patient's Medical Histories</h2>
+    <table id="myTable" class="table table-striped table-bordered table-sm">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AppointmentId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PatientName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DoctorName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dignosis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Medicine)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClinicRemark)
+            </th>
+        </tr>
+
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @if (item.AppointmentId == -1)
+                    {
+                        @Html.Raw("-")
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(modelItem => item.AppointmentId)
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PatientName)
+                </td>
+                <td>
+                    @if (item.AppointmentId == -1)
+                    {
+                        @Html.Raw("-")
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(modelItem => item.DoctorName)
+                    }
+                </td>
+                <td>
+                    @if (item.AppointmentId == -1)
+                    {
+                        @Html.Raw("-")
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(modelItem => item.Date)
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dignosis)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Medicine)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClinicRemark)
+                </td>
+
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

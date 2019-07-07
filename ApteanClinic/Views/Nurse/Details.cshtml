@@ -1,0 +1,43 @@
+﻿@model ApteanClinic.Models.Nurse
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Nurse Details</h2>
+
+<div>
+    <div class="col-md-3 col-sm-3 col-xs-12 profile_left ">
+        <div class="profile_img">
+            <div id="crop-avatar">
+                <img class="img-responsive avatar-view" src="~/Images/user.png">
+            </div>
+        </div>
+
+        <h3> @Html.DisplayFor(model => model.NurseUser.Name)</h3>
+        <ul class="list-unstyled user_data" style="font-size:20px;">
+            <li> <i class="glyphicon glyphicon-user"><strong>@Html.DisplayNameFor(model => model.NurseUser.Gender) : </strong>  @Html.DisplayFor(model => model.NurseUser.Gender)</i></li>
+            <li> <i class="glyphicon glyphicon-user"><strong>@Html.DisplayNameFor(model => model.NurseUser.BloodGroup) : </strong> @Html.DisplayFor(model => model.NurseUser.BloodGroup)</i></li>
+            <li> <i class="glyphicon glyphicon-earphone"><strong>@Html.DisplayNameFor(model => model.NurseUser.Contact) : </strong> @Html.DisplayFor(model => model.NurseUser.Contact)</i></li>
+            <li> <i class="glyphicon glyphicon-envelope"><strong>@Html.DisplayNameFor(model => model.NurseUser.Email) : </strong> @Html.DisplayFor(model => model.NurseUser.Email)</i></li>
+        </ul>
+        @if (Session["Role"].ToString() == "Nurse")
+        {
+            <button class="btn btn-default" type="button" onclick="location.href='/ResetPassword/Index'"><i style="padding:5px" class="fa fa-lock"></i> Reset Password </button>
+        }
+        @if (Session["Role"].ToString() != "Nurse")
+        {
+            <p>
+                @Html.ActionLink("Back to List", "Index")
+            </p>
+        }
+    </div>
+  
+</div>
+
+
+
+
+
+
+

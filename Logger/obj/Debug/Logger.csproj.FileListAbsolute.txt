@@ -1,0 +1,11 @@
+C:\Users\kdhawan\Source\Workspaces\BOOTCAMP\2019\TEAM C\ApteanClinic\Logger\bin\Debug\Logger.dll
+C:\Users\kdhawan\Source\Workspaces\BOOTCAMP\2019\TEAM C\ApteanClinic\Logger\bin\Debug\Logger.pdb
+C:\Users\kdhawan\Source\Workspaces\BOOTCAMP\2019\TEAM C\ApteanClinic\Logger\bin\Debug\log4net.dll
+C:\Users\kdhawan\Source\Workspaces\BOOTCAMP\2019\TEAM C\ApteanClinic\Logger\bin\Debug\log4net.xml
+C:\Users\kdhawan\Source\Workspaces\BOOTCAMP\2019\TEAM C\ApteanClinic\Logger\obj\Debug\Logger.csprojAssemblyReference.cache
+C:\Users\kdhawan\Source\Workspaces\BOOTCAMP\2019\TEAM C\ApteanClinic\Logger\obj\Debug\Logger.csproj.CoreCompileInputs.cache
+C:\Users\kdhawan\Source\Workspaces\BOOTCAMP\2019\TEAM C\ApteanClinic\Logger\obj\Debug\Logger.csproj.CopyComplete
+C:\Users\kdhawan\Source\Workspaces\BOOTCAMP\2019\TEAM C\ApteanClinic\Logger\obj\Debug\Logger.dll
+C:\Users\kdhawan\Source\Workspaces\BOOTCAMP\2019\TEAM C\ApteanClinic\Logger\obj\Debug\Logger.pdb
+C:\Users\kdhawan\Source\Workspaces\BOOTCAMP\2019\TEAM C\ApteanClinic\Logger\bin\Debug\log4net.config
+C:\Users\kdhawan\Source\Workspaces\BOOTCAMP\2019\TEAM C\ApteanClinic\Logger\bin\Debug\packages.config

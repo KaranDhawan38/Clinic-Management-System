@@ -1,0 +1,32 @@
+﻿.details-list {
+    padding:9px;
+    font-size:15px;
+}
+
+.appointment {
+    background-color: white;
+    outline: 0;
+}
+
+.appointment:focus {
+    background-color: white;
+    outline: 0;
+}
+
+.table-head {
+    font-size: 25px;
+    font: bold;
+}
+
+.table-body {
+    font-size: 20px;
+}
+
+.btn-round {
+    border-radius: 40px;
+    width: 150px;
+}
+
+.btn-square{
+    width:150px;
+}

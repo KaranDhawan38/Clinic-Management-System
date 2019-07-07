@@ -1,0 +1,79 @@
+﻿<div class="invoice">
+    @model IEnumerable<ApteanClinic.Models.InvoiceViewModel>
+
+    @{
+        ViewBag.Title = "MedicineQuantity";
+    }
+
+    <h1><b>Patient Invoice</b></h1>
+  
+    <div class="tables row">
+
+        <label> @Html.DisplayNameFor(model => model.PatientName) :</label>@Html.DisplayFor(model => model.ElementAtOrDefault(0).PatientName)<br />
+        <label>  @Html.DisplayNameFor(model => model.Phone_number) :</label>@Html.DisplayFor(model => model.ElementAt(0).Phone_number)<br />
+        <label>@Html.DisplayNameFor(model => model.AppointmentDate) :</label>@Html.DisplayFor(model => model.ElementAt(0).AppointmentDate)<br />
+
+        <table class="table table-striped">
+            <tr>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.MedicineName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Rate)
+
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Quantity)
+
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MedicineName)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Rate)
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Quantity)
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+
+                    </td>
+
+                </tr>
+            }
+            <tr>
+                <td colspan="3">
+                    <h1>Doctor's Fees</h1>
+                </td>
+
+                <td>
+                    <b>@ViewData["fees"].ToString()</b>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="3">
+                    <h1>Total</h1>
+                </td>
+
+                <td>
+                   <b> @ViewData["TotalBill"].ToString()</b>
+                </td>
+            </tr>
+        </table>
+        </div>
+    </div>

@@ -1,0 +1,35 @@
+﻿@model ApteanClinic.Models.LoginViewModel
+
+@{
+    Layout = "~/Views/Shared/LoginPageLayout.cshtml";
+    ViewBag.title = "Login";
+}
+
+    <div class="card-body">
+        <h2 class="text-center" style="margin-bottom:20px">Sign In</h2>
+        @using (Html.BeginForm())
+        {
+    <div class="form-group text-center">
+        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })<br>
+        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+    </div>
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Email)
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Email Address Here", key = "Email" } })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Password)
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Password Here", key = "Password" } })
+                </div>
+                <input class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" value="Sign In">
+                <div class="text-right m-t-sm" style="margin-top:20px;">
+                    <a href="@Url.Action("Index", "ForgotPassword")">Forgot Password?</a>
+                </div>
+                <hr class="my-4">
+                <div class="text-center">
+                    <div class="blockquote font-weight-lighter">New to site ? <cite title="Source Title"><a href="/Users/Create">Create Account</a></cite></div>
+                </div>
+                }
+            </div>
+

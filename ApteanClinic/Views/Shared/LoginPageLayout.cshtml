@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aptean Clinic - @ViewBag.Title</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/Login.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/BootstrapView.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/BootstrapView.css" />
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body> 
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 col-md-2 col-sm-1 col-xs-0"></div>
+            <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12">
+                <div class="card card-signin">
+                    <div class="text-center"><a href="/Login/Index"><img class="logo" src="../Images/Logo.png" alt="Logo" /></a></div>
+                    <div class="container-fluid">
+                        <div class="row" style="margin-bottom:50px">
+                            <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1"></div>
+                            <div class="col-lg-8 col-md-8 col-sm-10 col-xs-10">
+                                @RenderBody()
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-2 col-sm-1 col-xs-0"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/bundles/js")
+<script src="~/Scripts/LoginScript.js"></script>

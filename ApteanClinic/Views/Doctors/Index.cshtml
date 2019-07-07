@@ -1,0 +1,10 @@
+﻿
+@model IEnumerable<ApteanClinic.Models.Doctor>
+
+@{
+    ViewBag.Title = "Index";
+}
+    <h1>Doctors</h1>
+    <div class="tables row">
+        @Html.Partial("_DoctorsList", Model)
+    </div>

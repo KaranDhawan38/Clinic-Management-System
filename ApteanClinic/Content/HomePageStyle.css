@@ -1,0 +1,245 @@
+﻿.top-icons {
+    background-color: #EAEAEA;
+    padding-top: 5px;
+    padding-bottom: 10.5px;
+}
+
+.display-bar {
+    background-color: #EAEAEA;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+body {
+    padding-top: 50px;
+    zoom: 75%;
+    background-color: #F7F7F7 !important;
+    padding-bottom: 50px;
+}
+
+.logo {
+    color: #2A3F54;
+    font-size:170%;
+    text-decoration:none!important;
+}
+
+    .logo:hover {
+        color: #196076;
+    }
+
+.sidenav-button {
+    margin-right:10px;
+    font-size: 30px;
+    color: #2A3F50;
+    font-weight: 900;
+    border: none;
+    background-color: #EAEAEA;
+}
+
+.side-navbar {
+    color: white;
+    background-color: #2A3F54;
+    height:5000px;
+    padding: 5px;
+    margin-left:-440px;
+    display:none;
+    z-index:10;
+    position:fixed;
+    overflow:auto;
+}
+
+.menu-list {
+    
+    list-style: none;
+    padding: 0px;
+}
+
+.menu-div {
+    margin-top: 50px;
+    background-color: #009ECE;
+    height: auto;
+}
+
+.menu-div::-webkit-scrollbar {
+    width: 3px !important;
+}
+
+    .menu-div::-webkit-scrollbar-thumb {
+        background:white;
+    }
+
+        .menu-div::-webkit-scrollbar-thumb:hover {
+            background: white;
+        }
+
+.list-items {
+    color: white;
+    font-size: 20px;
+    margin-left: 10px
+}
+
+    .list-items:hover {
+        color: white;
+    }
+
+    .list-tag{
+        margin-bottom:10px;
+        padding:10px
+    }
+
+
+.list-tag:hover {
+    background-color: #196076;
+}
+
+.innerList {
+    color: white;
+    font-size: 20px;
+}
+
+    .innerList:hover {
+        color: white;
+    }
+
+.span-icons {
+    padding-right:10px;
+}
+
+.login-info {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.login-image {
+    width: 80px;
+    height: 80px;
+    border: 2px solid;
+    border-radius: 50px;
+}
+
+.name {
+    font-size: 20px;
+    margin-left: 10px;
+    margin-top: 15px;
+}
+
+.display-image {
+    border: 2px solid;
+    border-radius: 50px;
+    height: auto;
+    width: 50px;
+}
+
+.username {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #EAEAEA;
+    border:none;
+}
+
+.username-list {
+    font-size: 20px;
+    width:280px;
+}
+
+#helperDiv3{
+    display:none;
+}
+
+.tables{
+    background-color:white;
+    padding:20px;
+}
+
+.icon {
+    border: 2px solid;
+    padding: 5px;
+    border-radius: 20px;
+}
+
+.display-name {
+    font-size: 6em;
+    display: none;
+    color: #2A3F54;
+}
+
+.dashboard-elements-row{
+    height:300px;
+}
+
+.dashboard-elements {
+    background-color: white;
+    display: none;
+    border: 1px solid white;
+    height:95%;
+    margin-bottom:10px;
+    margin-right:20px;
+    border-radius: 20px;
+    box-shadow: 0 0.2rem 1.5rem 0 rgb(42, 63, 84);
+}
+
+    .dashboard-elements:hover{
+        box-shadow: 0 0.2rem 1.5rem 0 #196076;
+        cursor:pointer;
+    }
+
+.user-count {
+    color: #2A3F54;
+    font-size: 70px;
+}
+
+.user-icon {
+    color: #BAB8B9;
+    font-size: 70px;
+}
+
+.user-text {
+    color: #808080;
+    font-size: 50px;
+}
+
+.dashboard-elements:hover .user-icon{
+    color:cornflowerblue;
+}
+
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px black;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #2A3F54;
+    border-radius: 10px;
+}
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #009ECE;
+    }
+
+.carousel-inner {
+    border: 2px solid white;
+    box-shadow: 0 0.2rem 1.5rem 0 #196076;
+    border-radius: 10px;
+    height:50vw;
+}
+
+.heading {
+    height:100px;
+}
+
+.para{
+    font-size:30px;
+}
+
+.carousel-img {
+    width:100%;
+    height:100%
+}

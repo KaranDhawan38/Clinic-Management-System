@@ -1,0 +1,64 @@
+﻿@model ApteanClinic.Models.ForgotPassword
+
+@{
+    Layout = "~/Views/Shared/LoginPageLayout.cshtml";
+    ViewBag.title = "Forgot Password";
+}
+
+
+    <div class="container-fluid" id="OTP-form" style="padding:20px;">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12 mx-auto">
+                <div class="card card-signin my-5">
+                    <div class="card-body">
+                        <h3><i class="fa fa-lock fa-4x"></i></h3>
+                        <h2 class="text-center" style="padding-top:20px;">Forgot Password?</h2>
+                        <p class="text-center">You can reset your password here.</p>
+                        <div class="panel-body">
+                            @if (ViewBag.OTP == "false")
+                            {
+                                using (Html.BeginForm("OTPSend", "ForgotPassword"))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <hr />
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    <div class="text-dark text-center">Please enter your registered Mobile number</div>
+                                    <br />
+                                    <div class="form-group text-center">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-phone color-blue"></i></span>
+                                            @Html.EditorFor(model => model.MobileNumber, new { htmlAttributes = new { @id = "MobileNumber", @class = "form-control" } })
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.MobileNumber, "", new { @class = "text-danger" })
+                                    </div>
+                                    <input type="submit" value="Send OTP" class="btn btn-success btn-block" />
+                                    <input type="button" value="Back" onclick="window.location.href='/Login/Index'" class="btn btn-danger btn-block" style="margin-bottom:20px" />
+                                }
+                            }
+                            else
+                            {
+                                using (Html.BeginForm("OTPCheck", "ForgotPassword"))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <hr />
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    <div class="text-dark text-center">Please the 6 digit OTP here</div>
+                                    <br />
+                                    <div class="form-group text-center">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
+                                            @Html.EditorFor(model => model.OTP, new { htmlAttributes = new { @id = "OTP", @class = "form-control text-center", placeholder = "*  *  *  *  *  *" } })
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.OTP, "", new { @class = "text-danger" })
+                                    </div>
+                                    <input type="submit" value="Change Password" class="btn btn-success btn-block" />
+                                    <input type="button" value="Back" onclick="window.location.href = '/Login/Index'" class="btn btn-danger btn-block" style="margin-bottom:20px" />
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+

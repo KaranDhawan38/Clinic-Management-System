@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aptean Clinic - @ViewBag.Title</title>
+    <link rel="stylesheet" type="text/css" href="~/fontawesome-free-5.8.2-web/css/all.css" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="navbar-fixed-top">
+            <div id="top-icons" class="col-lg-2 col-md-3 col-sm-4 col-xs-5 top-icons">
+                <button type="button" class="sidenav-button" id="sidenavButton">
+                    &#9776;
+                </button>
+                <a href="/" class="logo" id="logo">
+                    <i class='far fa-hospital icon'></i>  Aptean Clinic
+                </a>
+            </div>
+            <div class="col-lg-10 col-md-9 col-sm-8 col-xs-7 text-right display-bar">
+                <img src="~/Images/defaultUser.png" id="displayImage" class="display-image" alt="Image" />
+                <button class="btn btn-default dropdown-toggle username" type="button" data-toggle="dropdown">
+                    @Session["Username"] <span style="font-size:16px" class="glyphicon glyphicon-chevron-down"></span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right username-list">
+                    <li><a href="/HomePage/Dashboard"><i class="fa fa-home span-icons" aria-hidden="true"></i> Home</a></li>
+                    @if (Session["Role"].ToString() == "Doctor")
+                    {
+                        <li><a href="/Doctors/Edit/@Session["DoctorId"]"><i class="fas fa-user-alt span-icons"></i> Manage Account</a></li>
+                    }
+                    else if (Session["Role"].ToString() == "Nurse")
+                    {
+                        <li><a href="/Nurse/Details/@Session["NurseId"]"><i class="fas fa-user-alt span-icons"></i> Manage Account</a></li>
+                    }
+                    else if (Session["Role"].ToString() == "Patient")
+                    {
+                        <li><a href="/Patients/Details/@Session["PatientId"]"><i class="fas fa-user-alt span-icons"></i> Manage Account</a></li>
+                    }
+                    else
+                    {
+                        <li><a href="/Admin/Edit"><i class="fas fa-user-alt span-icons"></i> Manage Account</a></li>
+                    }
+                    <li><a href="/ResetPassword/Index"><i class="fa fa-lock span-icons" aria-hidden="true"></i> Reset Password</a></li>
+                    <li><a href="/HomePage/Logout"><span class="glyphicon glyphicon-log-out span-icons"></span> Logout</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-5 side-navbar text-left" id="sidenav">
+                <div class="login-info container-fluid" id="userinformation">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <p id="layoutRole" style="display:none">@Session["Role"]</p>
+                            <img src="~/Images/defaultUser.png" alt="Image" id="image" class="login-image" />
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 text-left">
+                            <label class="name" id="username">Welcome<br />@Session["username"]</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-div">
+                    <ul class="menu-list" id="menu">
+                        <li class="list-tag"><a class="list-items" id="manageusers" href="#"><i class="fas fa-users span-icons"></i> Manage Users <span style="margin-left:1px;font-size:15px" class="glyphicon glyphicon-chevron-down"></span></a></li>
+                        <li style="display:none" id="innerList1">
+                            <ul class="menu-list text-center">
+                                <li class="list-tag"><a class="innerList" href="/Patients/Create"><span class="span-icons glyphicon glyphicon-plus"></span> Add Patients</a></li>
+                                <li class="list-tag"><a class="innerList" href="/Doctors/Create"><span class="glyphicon glyphicon-plus span-icons"></span> Add Doctors</a></li>
+                                <li class="list-tag"><a class="innerList" href="/Nurse/Create"><span class="glyphicon glyphicon-plus span-icons"></span> Add Nurses</a></li>
+                            </ul>
+                        </li>
+                        <li class="list-tag"><a class="list-items" href="/Doctors/Index"><i class="fas fa-user-md span-icons"></i> Doctors List</a></li>
+                        <li class="list-tag"><a class="list-items" href="/Nurse/Index"><i class="fas fa-user-nurse span-icons"></i> Nurses List</a></li>
+                        <li class="list-tag"><a class="list-items" href="/Patients/Index"><i class="fas fa-bed span-icons"></i> Patients List</a></li>
+                        <li class="list-tag"><a class="list-items" href="/Medicines/Index"><i class="fas fa-medkit span-icons"></i> Medicine List</a></li>
+                        @if (Session["Role"].ToString() == "Doctor")
+                        {
+                            <li class="list-tag"><a class="list-items" href="/Doctors/Details/@Session["DoctorId"]"><span class="glyphicon glyphicon-list span-icons"></span> Appointment List</a></li>
+                        }
+                        else
+                        {
+                            <li class="list-tag"><a class="list-items" href="/Appointment/AppointmentList/@Session["PatientId"]"><span class="glyphicon glyphicon-list span-icons"></span> Appointment List</a></li>
+                        }
+                        <li class="list-tag"><a id="manageappointments" style="font-size:18px" class="list-items" href="#"><span class="span-icons glyphicon glyphicon-earphone"></span> Manage Appointment <span style="margin-left:0px;font-size:15px" class="glyphicon glyphicon-chevron-down"></span></a></li>
+                        <li style="display:none" id="innerList2">
+                            <ul class="menu-list text-center">
+                                @if (Session["Role"].ToString() == "Patient")
+                                {
+                                    <li class="list-tag"><a class="innerList" href="/Appointment/Index/@Session["PatientId"]"><span class="span-icons glyphicon glyphicon-plus"></span> Add Appointment</a></li>
+                                }
+                                else
+                                {
+                                    <li class="list-tag"><a class="innerList" href="/Patients/Index"><span class="span-icons glyphicon glyphicon-plus"></span> Add Appointment</a></li>
+                                }
+
+                            </ul>
+                        </li>
+                        <li class="list-tag"><a class="list-items" href="/MedicalHistories/Index"><span class="glyphicon glyphicon-list-alt span-icons"></span> Manage History</a></li>
+                        <li class="list-tag"><a class="list-items" href="/Invoice/ManageInvoices/@Session["PatientId"]"><i class="fas fa-landmark span-icons"></i> Manage Finance</a></li>
+                        @if (Session["Role"].ToString() == "Doctor")
+                        {
+                            <li class="list-tag"><a class="list-items" href="/Doctors/Edit/@Session["DoctorId"]"><i class="fas fa-user-alt span-icons"></i> Manage Account</a></li>
+                        }
+                        else if (Session["Role"].ToString() == "Nurse")
+                        {
+                            <li class="list-tag"><a class="list-items" href="/Nurse/Details/@Session["NurseId"]"><i class="fas fa-user-alt span-icons"></i> Manage Account</a></li>
+                        }
+                        else if (Session["Role"].ToString() == "Patient")
+                        {
+                            <li class="list-tag"><a class="list-items" href="/Patients/Details/@Session["PatientId"]"><i class="fas fa-user-alt span-icons"></i> Manage Account</a></li>
+                        }
+                        else
+                        {
+                        <li class="list-tag"><a class="list-items" href="/Admin/Edit"><i class="fas fa-user-alt span-icons"></i> Manage Account</a></li>
+                        }
+                    </ul>
+                </div>
+
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-5" id="helperDiv3"></div>
+            <div class="col-lg-1 col-md-2 col-sm-2 col-xs-3" id="helperDiv1"></div>
+            <div class="col-lg-10 col-md-9 col-sm-8 col-xs-7" style="height:auto;margin-top:50px" id="viewDisplayer">
+                <div class="container-fluid">
+                    @RenderBody()
+                    <div class="row" style="margin-top:400px">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <hr />
+                            <footer class="text-center">
+                                <p>&copy; @DateTime.Now.Year - Aptean Clinic</p>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-1 col-md-1 col-sm-2 col-xs-2" id="helperDiv2"></div>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/js")
+    @RenderSection("scripts", required: false)
+    <script src="~/Scripts/HomePageScript.js"></script>
+</body>
+</html>

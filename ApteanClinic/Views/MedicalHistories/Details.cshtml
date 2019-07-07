@@ -1,0 +1,85 @@
+﻿@model IEnumerable<ApteanClinic.Models.MedicalHistoryViewModel>
+
+@{
+
+}
+
+
+<div>
+    <h2>Patient Histories</h2>
+    <hr />
+    @foreach (var item in Model)
+    {
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.AppointmentId)
+            </dt>
+
+            <dd>
+                @if (item.AppointmentId == -1)
+                {
+                    @Html.Raw("-")
+                }
+                else
+                {
+                    @Html.DisplayFor(ModelItem => item.AppointmentId)
+                }
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PatientName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(ModelItem => item.PatientName)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.DoctorName)
+            </dt>
+            <dd>
+                @Html.DisplayFor(ModelItem => item.DoctorName)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Date)
+            </dt>
+            <dd>
+                @if (item.AppointmentId == -1)
+                {
+                    @Html.Raw("-")
+                }
+                else
+                {
+                    @Html.DisplayFor(ModelItem => item.Date)
+                }
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Dignosis)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(ModelItem => item.Dignosis)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Medicine)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(ModelItem => item.Medicine)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ClinicRemark)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(ModelItem => item.ClinicRemark)
+            </dd>
+
+        </dl>
+        <hr />
+    }
+
+</div>
+

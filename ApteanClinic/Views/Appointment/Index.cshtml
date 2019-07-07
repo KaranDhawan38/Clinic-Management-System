@@ -1,0 +1,141 @@
+﻿@model ApteanClinic.Models.AppointmentViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@Styles.Render("~/Content/css")
+<link href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css">
+
+
+@using (Ajax.BeginForm("Index", "Appointment", new AjaxOptions { HttpMethod = "POST" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <h2>Fix Appointment</h2>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Speciality, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-8">
+                @Html.EnumDropDownListFor(model => model.Speciality, htmlAttributes: new { @class = "form-control", @id = "speciality" })
+            </div>
+        </div>
+    </div>
+    <div class="form-horizontal">
+        <div class="form-group">
+            @Html.LabelFor(model => model.DoctorId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-8">
+                <select id="doclist" class="form-control" name="DoctorId"></select>
+                @Html.ValidationMessageFor(model => model.DoctorId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.AppointmentDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-8">
+                <input id="appointmentdate" type="text" name="AppointmentDate" class="form-control" style="background-color:white;" readonly="readonly" />
+                @Html.ValidationMessageFor(model => model.AppointmentDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.TimeSlot, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-8">
+                <select id="timeslot" class="form-control" name="TimeSlot"></select>
+                @Html.ValidationMessageFor(model => model.TimeSlot, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-2">
+                <input type="submit" value="Fix Appointment" class="btn btn-success btn-outline-info" />
+            </div>
+        </div>
+    </div>
+
+}
+
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+
+        window.onload = function () {
+                alert("@ViewBag.Message");
+            };
+    </script>
+}
+@Scripts.Render("~/bundles/jquery")
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+@section Scripts {
+
+    @Scripts.Render("~/bundles/jqueryui")
+    @Styles.Render("~/Content/cssjqryUi")
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#appointmentdate").datepicker({
+                onSelect: function (selectedDate) {
+                    $.ajax({
+                        url: "/Appointment/ShowDoctorTime",
+                        data:
+                        {
+                            date: selectedDate,
+                            doctor: $("#doclist").children("option:selected").val(),
+                        },
+                        type: "Get",
+                        success: function (data) {
+                            $("#timeslot").empty();
+                            for (let i = 0; i < data.length; i++) {
+                                let opt = new Option(data[i], i);
+                                $("#timeslot").append(opt);
+                            }
+                        }
+                    });
+                },
+                beforeShowDay: $.datepicker.noWeekends,
+                minDate: '+1D',
+                maxDate: '+28D',
+            });
+        });
+
+        $("#speciality").change(function () {
+            $.ajax({
+                url: "/Appointment/ShowDoctorData",
+                data:
+                {
+                    specVal: $("#speciality").children("option:selected").val()
+                },
+                type: "Get",
+                success: function (data) {
+                    $("#doclist").empty();
+                    for (let i = 0; i < data.length; i++) {
+                        let opt = new Option(data[i].DoctorUser.Name, data[i].Id);
+                        $("#doclist").append(opt);
+                    }
+                }
+            });
+        });
+
+
+        $(document).ready(function () {
+            $.ajax({
+                url: "/Appointment/ShowDoctorData",
+                data:
+                {
+                    specVal: $("#speciality").children("option:selected").val()
+                },
+                type: "Get",
+                success: function (data) {
+                    for (let i = 0; i < data.length; i++) {
+                        let opt = new Option(data[i].DoctorUser.Name, data[i].Id);
+                        $("#doclist").append(opt);
+                    }
+                }
+            });
+        });
+
+
+    </script>
+
+}
